@@ -1,9 +1,11 @@
-#Happy Coding :(
-
 from flask import Flask, request, jsonify
 import requests
 
+from flask_cors import CORS
+
+
 app = Flask(__name__)
+CORS(app)
 
 # Gumloop API Configuration
 GUMLOOP_API_URL = "https://api.gumloop.com/api/v1/start_pipeline"
@@ -29,7 +31,7 @@ def classify_waste():
             "pipeline_inputs": [{"input_name": "waste_prompt", "value": user_prompt}]
         }
         headers = {
-            "Authorization": f"Bearer {GUMLOOP_API_KEY}",
+            "Authorization": f"Bearer cc3520f10f6a4a4589714d7816253127",
             "Content-Type": "application/json"
         }
 
@@ -48,5 +50,12 @@ def classify_waste():
         return jsonify({"error": "An error occurred.", "details": str(e)}), 500
 
 
-if __name__ == '__main__':
+@app.route("/", methods=["GET"])
+def home():
+    """Simple route to verify that the server is running."""
+    return jsonify({"message": "Waste Classification Chatbot is running!"})
+
+
+if __name__ == "__main__":
+    # Run the Flask server
     app.run(debug=True)
