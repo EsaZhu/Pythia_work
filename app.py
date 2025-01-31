@@ -9,9 +9,9 @@ CORS(app)
 
 # Gumloop API Configuration
 GUMLOOP_API_URL = "https://api.gumloop.com/api/v1/start_pipeline"
-GUMLOOP_API_KEY = "cc3520f10f6a4a4589714d7816253127"
-USER_ID = "J60ZuQFOleXaC0CUDYAhXhVjgdV2"
-SAVED_ITEM_ID = "cnGaNV6Mqr5u4veC88QGj5"
+GUMLOOP_API_KEY = "API_KEY_1234"
+USER_ID = "USER_ID"
+SAVED_ITEM_ID = "SAVED_ID"
 
 @app.route('/classify_waste', methods=['POST'])
 def classify_waste():
